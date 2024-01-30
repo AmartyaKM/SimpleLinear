@@ -5,7 +5,3 @@ SimpLinCpp <- function(x, y) {
     .Call(`_SimpLin_SimpLinCpp`, x, y)
 }
 
-SimpLinR <- function(x, y) {
-    .Call(`_SimpLin_SimpLinR`, x, y)
-}
-

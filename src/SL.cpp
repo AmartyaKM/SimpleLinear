@@ -16,10 +16,10 @@ List SimpLinCpp(NumericVector x, NumericVector y) {
   vec residuals = response - data * coefficients;
   vec fitted_values = data * coefficients;
   
-  double s2 = sum(square(residuals)) / (x.size() - 2);  // Residual standard error
+  double s2 = sum(square(residuals)) / (x.size() - 2);  
   mat cov_matrix = s2 * inv_sympd(trans(data) * data);
   vec se = sqrt(cov_matrix.diag());
-  double t_critical = R::qt(0.975, x.size() - 2, true, false); // Use R::qt for quantile function
+  double t_critical = R::qt(0.975, x.size() - 2, true, false); 
   
   vec lower_ci = coefficients - t_critical * se;
   vec upper_ci = coefficients + t_critical * se;
