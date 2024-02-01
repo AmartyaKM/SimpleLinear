@@ -1,0 +1,69 @@
+---
+title: "Simple Linear Regression"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Simple Linear Regression}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(SimpLin)
+```
+
+# Introduction
+
+This is a simple example of a simple linear regression analysis using the `SimpLin` package.
+I have included one example here. You have to provide the response variable and the predictor variable to the `SimpLinR` function in that order.
+
+```{r}
+set.seed(600)
+init_X <- rnorm(100)
+init_Y <- 1 - init_X + rnorm(100)
+r <- SimpLinR(init_Y, init_X)
+```
+
+It will produce a list of results. You can access -
+
+1) the coefficients of the model 
+
+```{r}
+r$coefficients
+    
+```
+
+2) the residuals
+
+```{r}  
+r$residuals
+
+```
+3) the fitted values
+
+```{r}
+r$fitted.values
+
+```
+4) the confidence intervals for the coefficients
+
+```{r}
+r$confidence_intervals
+```
+
+5) the standard errors of the coefficients
+
+```{r}
+r$standard_errors
+
+```
+
+
+
+
